@@ -44,4 +44,12 @@ Alice - I love the weather today (5 minutes ago)
 * posting: user name -> message
 * reading: user name
 * following: user name follows another user
-* wall: user name wall
+* wall: user name wall 
+
+<h2>Instructions: How to run the application </h2>
+
+1. Download the repo
+2. Run gradle installDist to create an image of the application in build/install/console_twitter.
+   ``` gradlew installDist```
+3. Execute the binary program located at:
+   ```build/install/console_twitte/bin/console_twitter ```
