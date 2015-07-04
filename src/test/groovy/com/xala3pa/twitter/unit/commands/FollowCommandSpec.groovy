@@ -3,14 +3,14 @@ package com.xala3pa.twitter.unit.commands
 import spock.lang.*
 
 import com.xala3pa.twitter.commands.FollowCommand
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 
 class FollowCommandSpec extends Specification {
 
-    Repo repo
+    Repository repository
 
     def setup() {
-        repo = Mock()
+        repository = Mock()
     }
 
     def "Execute with proper command"() {
@@ -20,10 +20,10 @@ class FollowCommandSpec extends Specification {
         FollowCommand followCommand = new FollowCommand()
 
         when: "We execute"
-        followCommand.execute(command, repo)
+        followCommand.execute(command, repository)
 
         then: "saveFollower() is invoked"
-        1 *  repo.saveFollower(_ as String, _ as String)
+        1 *  repository.saveFollower(_ as String, _ as String)
     }
 
     def "Execute with non proper command"() {
@@ -33,9 +33,9 @@ class FollowCommandSpec extends Specification {
         FollowCommand followCommand = new FollowCommand()
 
         when: "We execute"
-        followCommand.execute(command, repo)
+        followCommand.execute(command, repository)
 
         then: "saveFollower() is NOT invoked"
-        0 *  repo.saveFollower(_ as String, _ as String)
+        0 *  repository.saveFollower(_ as String, _ as String)
     }
 }

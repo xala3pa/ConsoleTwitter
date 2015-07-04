@@ -1,6 +1,6 @@
 package com.xala3pa.twitter.commands
 
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 
 class CommandInvoker {
 
@@ -20,9 +20,9 @@ class CommandInvoker {
         this.avilableCommandList = [wallCommand, followCommand, postCommand, readCommand]
     }
 
-	void executeCommand(String command, Repo repo) {
-		avilableCommandList.each() { it ->
-			it.execute(command, repo)
+	void executeCommand(String textCommand, Repository repository) {
+		avilableCommandList.each() { command ->
+			command.execute(textCommand, repository)
 		}
     }
 }

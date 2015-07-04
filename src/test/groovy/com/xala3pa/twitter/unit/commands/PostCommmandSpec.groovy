@@ -3,15 +3,15 @@ package com.xala3pa.twitter.unit.commands
 import spock.lang.*
 
 import com.xala3pa.twitter.commands.PostCommand
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 import com.xala3pa.twitter.tweets.Tweet
 
 class PostCommandSpec extends Specification {
 
-    Repo repo
+    Repository repository
 
     def setup() {
-        repo = Mock()
+        repository = Mock()
     }
 
     def "Execute with proper command"() {
@@ -21,10 +21,10 @@ class PostCommandSpec extends Specification {
         PostCommand postCommand = new PostCommand()
 
         when: "We execute"
-        postCommand.execute(command, repo)
+        postCommand.execute(command, repository)
 
         then: "saveUserTweet() is invoked"
-        1 *  repo.saveUserTweet(_ as String, _ as Tweet)
+        1 *  repository.saveUserTweet(_ as String, _ as Tweet)
     }
 
     def "Execute with non proper command"() {
@@ -34,9 +34,9 @@ class PostCommandSpec extends Specification {
         PostCommand postCommand = new PostCommand()
 
         when: "We execute"
-        postCommand.execute(command, repo)
+        postCommand.execute(command, repository)
 
         then: "saveUserTweet() is NOT invoked"
-        0 *  repo.saveUserTweet(_ as String, _ as Tweet)
+        0 *  repository.saveUserTweet(_ as String, _ as Tweet)
     }
 }

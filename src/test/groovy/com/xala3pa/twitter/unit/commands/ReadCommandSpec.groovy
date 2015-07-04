@@ -3,14 +3,14 @@ package com.xala3pa.twitter.unit.commands
 import spock.lang.*
 
 import com.xala3pa.twitter.commands.ReadCommand
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 
 class ReadCommandSpec extends Specification {
 
-    Repo repo
+    Repository repository
 
     def setup() {
-        repo = Mock()
+        repository = Mock()
     }
 
     def "Execute with proper command"() {
@@ -20,10 +20,10 @@ class ReadCommandSpec extends Specification {
         ReadCommand readCommand = new ReadCommand()
 
         when: "We execute"
-        readCommand.execute(command, repo)
+        readCommand.execute(command, repository)
 
         then: "showUserTimeline() is invoked"
-        1 *  repo.showUserTimeline(_ as String)
+        1 *  repository.showUserTimeline(_ as String)
     }
 
     def "Execute with non proper command"() {
@@ -33,9 +33,9 @@ class ReadCommandSpec extends Specification {
         ReadCommand readCommand = new ReadCommand()
 
         when: "We execute"
-        readCommand.execute(command, repo)
+        readCommand.execute(command, repository)
 
         then: "showUserTimeline() is NOT invoked"
-        0 *  repo.showUserTimeline(_ as String)
+        0 *  repository.showUserTimeline(_ as String)
     }
 }

@@ -2,7 +2,7 @@ package com.xala3pa.twitter.backend
 
 import com.xala3pa.twitter.tweets.Tweet
 
-class Repo {
+class Repository {
 
 	private Map userTimeline = [:]
     private Map userFollowers = [:]

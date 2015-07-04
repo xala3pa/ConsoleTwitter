@@ -1,8 +1,6 @@
 package com.xala3pa.twitter.unit.commands
 
 import spock.lang.*
-
-import com.xala3pa.twitter.backend.Repo
 import com.xala3pa.twitter.backend.Views
 import com.xala3pa.twitter.tweets.Tweet
 

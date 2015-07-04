@@ -3,14 +3,14 @@ package com.xala3pa.twitter.unit.commands
 import spock.lang.*
 
 import com.xala3pa.twitter.commands.WallCommand
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 
 class WallCommandSpec extends Specification {
 
-    Repo repo
+    Repository repository
 
     def setup() {
-        repo = Mock()
+        repository = Mock()
     }
 
     def "Execute with proper command"() {
@@ -20,10 +20,10 @@ class WallCommandSpec extends Specification {
 	    WallCommand wallCommand = new WallCommand()
 
 	    when: "We execute"
-	    wallCommand.execute(command, repo)
+	    wallCommand.execute(command, repository)
 
 		then: "showWall() is invoked"
-	    1 *  repo.showWall(_ as String)
+	    1 *  repository.showWall(_ as String)
   	}
 
   	def "Execute with non proper command"() {
@@ -33,9 +33,9 @@ class WallCommandSpec extends Specification {
     	WallCommand wallCommand = new WallCommand()
 
     	when: "We execute"
-    	wallCommand.execute(command, repo)
+    	wallCommand.execute(command, repository)
 
     	then: "showWall() is NOT invoked"
-    	0 *  repo.showWall(_ as String)
+    	0 *  repository.showWall(_ as String)
   	}
 }

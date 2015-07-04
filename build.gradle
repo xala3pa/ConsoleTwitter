@@ -22,9 +22,9 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'com.xala3pa.twitter.Server'
+        attributes 'Main-Class': 'com.xala3pa.twitter.TwitterLauncher'
     }
 }
 
 
-mainClassName = 'com.xala3pa.twitter.Server'
+mainClassName = 'com.xala3pa.twitter.TwitterLauncher'

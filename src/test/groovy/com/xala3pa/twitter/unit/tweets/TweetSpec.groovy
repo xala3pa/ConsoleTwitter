@@ -42,7 +42,7 @@ class TweetSpec extends Specification {
         when: "We compare"
         def res = tweet.compareTo(other)
 
-        then: "retun 0"
+        then: "return 0"
         assert res == 0
     }
 }

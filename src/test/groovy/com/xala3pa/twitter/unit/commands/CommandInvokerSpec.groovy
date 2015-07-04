@@ -3,18 +3,18 @@ package com.xala3pa.twitter.unit.commands
 import spock.lang.*
 
 import com.xala3pa.twitter.commands.*
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 
 class CommandInvokerSpec extends Specification {
 
-    Repo repo
+    Repository repository
     WallCommand wallCommand
     ReadCommand readCommand
     PostCommand postCommand
     FollowCommand followCommand
 
     def setup() {
-        repo = Mock()
+        repository = Mock()
         wallCommand = Mock()
         readCommand = Mock()
         postCommand = Mock()
@@ -29,13 +29,13 @@ class CommandInvokerSpec extends Specification {
             wallCommand, readCommand)
 
         when: "We execute de command invoker"
-        commandInvoker.executeCommand(command, repo)
+        commandInvoker.executeCommand(command, repository)
 
         then: "each command handlers are executed"
-        1 *  postCommand.execute(_ as String, _ as Repo)
-        1 *  followCommand.execute(_ as String, _ as Repo)
-        1 *  wallCommand.execute(_ as String, _ as Repo)
-        1 *  readCommand.execute(_ as String, _ as Repo)
+        1 *  postCommand.execute(_ as String, _ as Repository)
+        1 *  followCommand.execute(_ as String, _ as Repository)
+        1 *  wallCommand.execute(_ as String, _ as Repository)
+        1 *  readCommand.execute(_ as String, _ as Repository)
     }
 
     def "Execute invoker with NON proper command"() {
@@ -46,12 +46,12 @@ class CommandInvokerSpec extends Specification {
             wallCommand, readCommand)
 
         when: "We execute de command invoker"
-        commandInvoker.executeCommand(command, repo)
+        commandInvoker.executeCommand(command, repository)
 
         then: "each command handlers are executed"
-        1 *  postCommand.execute(_ as String, _ as Repo)
-        1 *  followCommand.execute(_ as String, _ as Repo)
-        1 *  wallCommand.execute(_ as String, _ as Repo)
-        1 *  readCommand.execute(_ as String, _ as Repo)
+        1 *  postCommand.execute(_ as String, _ as Repository)
+        1 *  followCommand.execute(_ as String, _ as Repository)
+        1 *  wallCommand.execute(_ as String, _ as Repository)
+        1 *  readCommand.execute(_ as String, _ as Repository)
     }
 }

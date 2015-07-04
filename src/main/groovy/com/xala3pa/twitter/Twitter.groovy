@@ -1,20 +1,17 @@
 package com.xala3pa.twitter
 
-import java.io.Console
-import java.util.Scanner
-
 import com.xala3pa.twitter.commands.*
-import com.xala3pa.twitter.backend.Repo
+import com.xala3pa.twitter.backend.Repository
 
 class Twitter {
     private final CommandInvoker commandInvoker
-    private final Repo repo
-    private final Console con
+    private final Repository repository
+    private final Console console
 
-    Twitter(CommandInvoker commandInvoker, Console console, Repo repo) {
+    Twitter(CommandInvoker commandInvoker, Console console, Repository repository) {
         this.commandInvoker = commandInvoker
-        this.repo = repo
-        this.con = console
+        this.repository = repository
+        this.console = console
     }
 
     void init() {
@@ -37,10 +34,10 @@ class Twitter {
       """)
 
          while (true) {
-            if (con != null) {
-                Scanner scanner = new Scanner(con.reader())
+            if (console != null) {
+                Scanner scanner = new Scanner(console.reader())
                 command = scanner.nextLine()
-                commandInvoker.executeCommand(command, repo)
+                commandInvoker.executeCommand(command, repository)
             } else {
                 break
             }
