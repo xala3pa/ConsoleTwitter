@@ -1,7 +1,8 @@
  ConsoleTwitter 
 ========================
 
-[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
+[![Build Status](https://travis-ci.org/xala3pa/ConsoleTwitter.svg?branch=master)](https://travis-ci.org/xala3pa/ConsoleTwitter)
+
 
 Implement a console-based social networking application (similar to Twitter) satisfying the scenarios below.
 
